@@ -6,6 +6,18 @@ FROM Employee
 WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 
+-- Logical Steps:
+/*
+    1) Create a query to get the salary of the highest earner. (SLECT MAX(salary) FROM Employee)
+    2) Use that query as a subquery in the WHERE clause to filter out the highest salary from the Employee table.
+    3) Use the MAX() function again to get the highest salary from the filtered results, which will be the second highest salary overall.
+    4) Alias the result as SecondHighestSalary.
+    5) If there is no second highest salary, the query will return NULL by default. 
+
+
+*/
+
+-- Symantax Steps:
 /*
 0. FROM the Employee table, 
 1. Create a subquery in the WHERE clause to get the maximum salary.
@@ -14,12 +26,6 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 4. If there is no second highest salary, the query will return NULL by default. 
 
 */ 
-
-
-
-
-
-
 
 
 
