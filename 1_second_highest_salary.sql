@@ -1,11 +1,6 @@
 
 
--- Find the secondd highest salary from the Employee table.
-SELECT MAX(salary) AS SecondHighestSalary
-FROM Employee
-WHERE salary < (SELECT MAX(salary) FROM Employee);
-
-
+-- Find the second highest salary from the Employee table.
 -- Logical Steps:
 /*
     1) Create a query to get the salary of the highest earner. (SLECT MAX(salary) FROM Employee)
@@ -27,15 +22,22 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 */ 
 
+SELECT MAX(salary) AS SecondHighestSalary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 
+
+
+
+
+-- AOB
 -- Using CoPilot autocomplete feature
 SELECT 
     (SELECT DISTINCT Salary 
      FROM Employee 
      ORDER BY Salary DESC 
      LIMIT 1 OFFSET 1) AS SecondHighestSalary;  
-
 
 
 
